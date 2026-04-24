@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Test Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form {
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        width: 300px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+</head>
+
+<body>
+
+<form>
+    <h1>Test Form</h1>
+
+    <label>First Name</label>
+    <input type="text" class="abc" name="firstname">
+
+    <label>Last Name</label>
+    <input type="text" class="xyz" name="lastname">
+
+    <label>Phone</label>
+    <input type="text" class="phone" name="phonenumber">
+
+    <label>Email ID</label>
+    <input type="email" class="email" name="emailID">
+
+    <label>Address</label>
+    <input type="text" class="address" name="address">
+
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>
