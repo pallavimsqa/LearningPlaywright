@@ -18,9 +18,15 @@ This repository contains hands-on labs and examples for learning Playwright, a m
 LearningPlaywrightFoundamentals/
 ├── tests/
 │   ├── example.spec.ts              # Basic example test
-│   └── 01_Basics/
-│       ├── Lab209.spec.ts           # Fundamentals lab exercises
-│       └── Lab210_Test_Annoations.spec.ts  # Test annotations examples
+│   ├── 01_Basics/
+│   │   ├── Lab209.spec.ts           # Fundamentals lab exercises
+│   │   └── Lab210_Test_Annoations.spec.ts  # Test annotations examples
+│   └── 02_First_tests/
+│       ├── 211_First_Running_Test.spec.ts    # First running test example
+│       ├── 212_Browser_Context_Pages.spec.ts # Browser context and pages management
+│       ├── 213_Multiple_Context.spec.ts      # Multiple context handling
+│       ├── 214_Multiple_Pages.spec.ts        # Multiple pages within a context
+│       └── 215_Test_PW.spec.ts              # VWO login application test
 ├── playwright.config.ts             # Playwright configuration
 ├── package.json                     # Project dependencies
 ├── playwright-report/               # Test reports
@@ -86,6 +92,14 @@ Located in `tests/01_Basics/Lab210_Test_Annoations.spec.ts`
 - Using test annotations (@)
 - Tagging tests
 - Conditional test execution
+
+### 02_First_tests - Practical Testing
+Located in `tests/02_First_tests/`
+- **211_First_Running_Test.spec.ts**: First practical running test example
+- **212_Browser_Context_Pages.spec.ts**: Browser context and page management
+- **213_Multiple_Context.spec.ts**: Working with multiple browser contexts
+- **214_Multiple_Pages.spec.ts**: Managing multiple pages within a single context
+- **215_Test_PW.spec.ts**: VWO login application - demonstrates real-world login scenario with URL hash routing
 
 ## ⚙️ Configuration
 
