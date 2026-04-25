@@ -24,8 +24,9 @@ test('open cura website and login', async ({page}) => {
 
     // verify the Url and check for make appointment
      await expect(page).toHaveURL("https://katalon-demo-cura.herokuapp.com/#appointment");
-    //let heading = page.locator(".text-center");
-    //await expect(heading).toContainText('Make Appointment');
+     
+    let heading = page.locator(".text-center");
+    await expect(heading).toBeVisible('Make Appointment');
 
 
 });
