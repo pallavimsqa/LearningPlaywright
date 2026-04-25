@@ -21,12 +21,24 @@ LearningPlaywrightFoundamentals/
 │   ├── 01_Basics/
 │   │   ├── Lab209.spec.ts           # Fundamentals lab exercises
 │   │   └── Lab210_Test_Annoations.spec.ts  # Test annotations examples
-│   └── 02_First_tests/
-│       ├── 211_First_Running_Test.spec.ts    # First running test example
-│       ├── 212_Browser_Context_Pages.spec.ts # Browser context and pages management
-│       ├── 213_Multiple_Context.spec.ts      # Multiple context handling
-│       ├── 214_Multiple_Pages.spec.ts        # Multiple pages within a context
-│       └── 215_Test_PW.spec.ts              # VWO login application test
+│   ├── 02_First_tests/
+│   │   ├── 211_First_Running_Test.spec.ts      # First running test example
+│   │   ├── 212_Browser_Context_Pages.spec.ts   # Browser context and pages management
+│   │   ├── 213_Multiple_Context.spec.ts        # Multiple context handling
+│   │   ├── 214_Multiple_Pages.spec.ts          # Multiple pages within a context
+│   │   ├── 215_Test_PW.spec.ts                 # VWO login application test
+│   │   ├── 216_Manual_Context.spec.ts          # Manual context setup examples
+│   │   ├── 217_Manual_Context_Options.spec.ts  # Context configuration options
+│   │   ├── 218_Context_Reuse.spec.ts           # Context reusability patterns
+│   │   ├── task1_Multiple_Context_Pages.spec.ts # Task 1: Multiple contexts and pages
+│   │   └── task2_Context_MultiPages.spec.ts    # Task 2: Advanced context scenarios
+│   └── 03_Locators_Commands/
+│       ├── 219_Commands.spec.ts                # Playwright commands overview
+│       ├── 220_GotoCommands.spec.ts            # Navigation commands
+│       ├── 221_Referer_Command.spec.ts         # Referrer command examples
+│       ├── 222_Automation.vwo.com.spec.ts      # VWO.com automation examples
+│       ├── Task1_Cura_Automation.spec.ts       # CURA healthcare automation task
+│       └── TestPage.html                       # Test HTML page for automation
 ├── playwright.config.ts             # Playwright configuration
 ├── package.json                     # Project dependencies
 ├── playwright-report/               # Test reports
@@ -100,6 +112,20 @@ Located in `tests/02_First_tests/`
 - **213_Multiple_Context.spec.ts**: Working with multiple browser contexts
 - **214_Multiple_Pages.spec.ts**: Managing multiple pages within a single context
 - **215_Test_PW.spec.ts**: VWO login application - demonstrates real-world login scenario with URL hash routing
+- **216_Manual_Context.spec.ts**: Manual context creation and configuration
+- **217_Manual_Context_Options.spec.ts**: Advanced context options and settings
+- **218_Context_Reuse.spec.ts**: Best practices for context reusability
+- **task1_Multiple_Context_Pages.spec.ts**: Hands-on task for multiple contexts and pages
+- **task2_Context_MultiPages.spec.ts**: Advanced task combining multiple contexts and pages
+
+### 03_Locators_Commands - Locators and Automation
+Located in `tests/03_Locators_Commands/`
+- **219_Commands.spec.ts**: Overview of Playwright commands and API
+- **220_GotoCommands.spec.ts**: Navigation and goto command patterns
+- **221_Referer_Command.spec.ts**: HTTP referrer header handling
+- **222_Automation.vwo.com.spec.ts**: Real-world automation examples with VWO.com
+- **Task1_Cura_Automation.spec.ts**: Complete CURA healthcare patient portal automation task
+- **TestPage.html**: Local test page for automation practice
 
 ## ⚙️ Configuration
 
