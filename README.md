@@ -124,7 +124,11 @@ Located in `tests/03_Locators_Commands/`
 - **220_GotoCommands.spec.ts**: Navigation and goto command patterns
 - **221_Referer_Command.spec.ts**: HTTP referrer header handling
 - **222_Automation.vwo.com.spec.ts**: Real-world automation examples with VWO.com
-- **Task1_Cura_Automation.spec.ts**: Complete CURA healthcare patient portal automation task
+- **223_Xpath.spec.ts**: XPath locator strategies and usage patterns
+- **224_GetRole.spec.ts**: Accessible role-based locator methods
+- **225_CSS_Locators.spec.ts**: CSS selector locating techniques
+- **226_PressSequentially.spec.ts**: Keyboard input and sequential key pressing
+- **227_Cookie.spec.ts**: Cookie management and handling in tests
 - **TestPage.html**: Local test page for automation practice
 
 ## ⚙️ Configuration
@@ -162,5 +166,5 @@ ISC
 
 ---
 
-**Last Updated**: April 2026  
+**Last Updated**: May 2026  
 **Author**: Pallavi MSQA
