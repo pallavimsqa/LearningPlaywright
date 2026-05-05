@@ -1,3 +1,6 @@
+//Please now automate the App.vwo invalid username and password with error message. 
+// But now you have to use get by role. 
+
 import {test,expect}from '@playwright/test';
 
 test('Automate App.VWO.com using getByRole' ,  async({page}) => {
