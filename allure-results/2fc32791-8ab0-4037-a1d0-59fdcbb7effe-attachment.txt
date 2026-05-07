@@ -1,0 +1,3 @@
+Sucessfully signedup TTA Bank
+Sucessfully logged In & Dashborad page loaded
+Tranfered $5000 successfully
