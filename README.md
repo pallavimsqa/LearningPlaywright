@@ -32,17 +32,34 @@ LearningPlaywrightFoundamentals/
 │   │   ├── 218_Context_Reuse.spec.ts           # Context reusability patterns
 │   │   ├── task1_Multiple_Context_Pages.spec.ts # Task 1: Multiple contexts and pages
 │   │   └── task2_Context_MultiPages.spec.ts    # Task 2: Advanced context scenarios
-│   └── 03_Locators_Commands/
-│       ├── 219_Commands.spec.ts                # Playwright commands overview
-│       ├── 220_GotoCommands.spec.ts            # Navigation commands
-│       ├── 221_Referer_Command.spec.ts         # Referrer command examples
-│       ├── 222_Automation.vwo.com.spec.ts      # VWO.com automation examples
-│       ├── Task1_Cura_Automation.spec.ts       # CURA healthcare automation task
-│       └── TestPage.html                       # Test HTML page for automation
-├── playwright.config.ts             # Playwright configuration
+│   ├── 03_Locators_Commands/
+│   │   ├── 219_Commands.spec.ts                # Playwright commands overview
+│   │   ├── 220_GotoCommands.spec.ts            # Navigation commands
+│   │   ├── 221_Referer_Command.spec.ts         # Referrer command examples
+│   │   ├── 222_Automation.vwo.com.spec.ts      # VWO.com automation examples
+│   │   ├── 223_Xpath.spec.ts                   # XPath locator strategies
+│   │   ├── 224_GetRole.spec.ts                 # Accessible role-based locators
+│   │   ├── 225_CSS_Locators.spec.ts            # CSS selector techniques
+│   │   ├── 226_PressSequentially.spec.ts       # Keyboard input and key pressing
+│   │   ├── 227_Cookie.spec.ts                  # Cookie management
+│   │   └── TestPage.html                       # Test HTML page for automation
+│   └── 04_Session_Storage/
+│       └── 228_Session.spec.ts                 # Session and storage state management
+│   └── 05_Allure_Reporting/
+│       └── 230_Login.spec.ts                   # Login test with Allure reporting
+│   └── Projects/
+│       └── Project_4_TTA_Bank.spec.ts          # TTA Bank transfer fund automation
+├── CustomTTAReporter.ts             # Custom test reporter implementation
+├── playwright.config.ts             # Playwright configuration with reporters
 ├── package.json                     # Project dependencies
-├── playwright-report/               # Test reports
-└── test-results/                    # Test results
+├── playwright-report/               # Playwright HTML test reports
+├── allure-report/                   # Allure detailed test reports
+├── allure-results/                  # Allure results data
+├── tta-report/                      # TTA custom reporter output
+│   ├── screenshots/                 # Test screenshots
+│   ├── videos/                      # Test video recordings
+│   └── traces/                      # Trace files for debugging
+└── test-results/                    # Test results and artifacts
 ```
 
 ## 🚀 Getting Started
@@ -131,23 +148,99 @@ Located in `tests/03_Locators_Commands/`
 - **227_Cookie.spec.ts**: Cookie management and handling in tests
 - **TestPage.html**: Local test page for automation practice
 
+### 04_Session_Storage - Session and Storage State Management
+Located in `tests/04_Session_Storage/`
+- **228_Session.spec.ts**: Saving and reusing authenticated session state across tests
+
 ## ⚙️ Configuration
 
-The project uses Playwright's default configuration with the following settings:
+The project uses Playwright's configuration with the following settings:
 - **Test Directory**: `./tests`
-- **Reporter**: HTML report
+- **Reporters**: 
+  - HTML Report (Default Playwright HTML)
+  - Allure Report (Advanced test reporting with history and trends)
+  - CustomTTAReporter (TTA Custom HTML Report with enhanced visualizations)
 - **Parallel Execution**: Enabled
 - **Browser**: Chromium (main browser for testing)
-- **Trace**: Collected on first retry for failed tests
+- **Video Recording**: `on` - Records video for all tests
+- **Screenshots**: `on` - Captures screenshots for all tests
+- **Trace Recording**: `on` - Records detailed trace files for all tests
+- **Headless**: `false` - Runs in headed mode by default for visibility
 
-See `playwright.config.ts` for detailed configuration options.
+### Test Artifacts
 
-## 📊 Test Reports
+All tests generate the following artifacts automatically:
+- 📹 **Videos**: Stored in `tta-report/videos/`
+- 📷 **Screenshots**: Stored in `tta-report/screenshots/`
+- 🔍 **Traces**: Stored in `tta-report/traces/` (viewable in Playwright Inspector)
 
-After running tests, HTML reports are automatically generated in the `playwright-report/` directory. View the report using:
+## 📊 Report Generation
+
+### CustomTTAReporter
+The project includes a custom Playwright reporter (`CustomTTAReporter.ts`) that generates beautiful HTML reports with:
+- Real-time test execution monitoring
+- Test step-by-step breakdown with status indicators
+- Video playback directly in the report
+- Screenshot gallery with detailed views
+- Error messages and stack traces
+- Trace file downloads
+- Test execution history
+- Performance metrics and pass rate analysis
+- Environment and browser information
+
+**View TTA Custom Report:**
+```bash
+# Open the latest generated report
+open tta-report/index.html
+```
+
+### Allure Report
+Generate Allure reports for advanced test analytics:
+```bash
+allure generate
+```
+
+### HTML Report
+Default Playwright HTML report:
 ```bash
 npx playwright show-report
 ```
+
+## 🎯 Projects
+
+### Project 4 - TTA Bank Digital
+Located in `tests/Projects/Project_4_TTA_Bank.spec.ts`
+
+**Objective**: Automate fund transfer workflow in TTA Bank digital application
+
+**Application URL**: https://tta-bank-digital-973242068062.us-west1.run.app/
+
+**Test Scenarios**:
+1. **Signup**: Click signup button, enter username and password, create account
+2. **Transfer Fund**: Navigate to transfer fund section, enter amount ($5000), add note, and continue
+3. **Confirm Transfer**: Confirm the transfer and return to dashboard
+4. **Verification**: Verify that the account balance has been reduced by the transferred amount
+
+**Technologies Used**:
+- Playwright for test automation
+- TypeScript for type safety
+- CustomTTAReporter for enhanced reporting
+- Video recording and screenshots for test documentation
+
+**How to Run**:
+```bash
+# Run the TTA Bank project test
+npx playwright test tests/Projects/Project_4_TTA_Bank.spec.ts
+
+# View the generated report
+open tta-report/index.html
+```
+
+**Expected Artifacts**:
+- ✅ Test execution video
+- ✅ Screenshots of each step
+- ✅ Trace file for debugging
+- ✅ Detailed HTML report with all interactions
 
 ## 📝 Notes
 
