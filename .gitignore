@@ -6,3 +6,10 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Test Reports and Artifacts
+/allure-results/
+/allure-report/
+/tta-report/
+*.webm
+*.png

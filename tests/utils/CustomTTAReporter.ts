@@ -454,10 +454,6 @@ class CustomTTAReporter implements Reporter {
     }
 
     private associateLogsWithSteps(_test: TestCase, result: TestResult, testSteps: StepData[]): void {
-        if (testSteps.length === 0) {
-            return;
-        }
-
         // Initialize consoleLogs array for all steps
         for (const step of testSteps) {
             if (!step.consoleLogs) {
@@ -520,6 +516,23 @@ class CustomTTAReporter implements Reporter {
             return;
         }
 
+        // BUG FIX: If there are no test steps, create a synthetic "Console Logs" step
+        // so that console output is still captured and shown in the report.
+        if (testSteps.length === 0) {
+            testSteps.push({
+                title: 'Console Logs',
+                category: 'test.step',
+                duration: 0,
+                status: 'passed',
+                startTime: new Date().toLocaleTimeString(),
+                consoleLogs: [...allLogs],
+                stepIndex: 0,
+                videoStartTime: 0,
+                videoEndTime: 0,
+            });
+            return;
+        }
+
         // IMPORTANT: stdout from test code does NOT include our reporter's ⏳/✅ markers
         // Those go directly to terminal, not into test stdout.
         // So we need to distribute logs among steps based on step count.
@@ -561,8 +574,8 @@ class CustomTTAReporter implements Reporter {
             const stepsNeedingLogs = testSteps.filter(s => s.consoleLogs!.length === 0);
 
             if (stepsNeedingLogs.length > 0) {
-                // Distribute logs evenly among steps that need them
-                const logsPerStep = Math.ceil(unassignedLogs.length / testSteps.length);
+                // BUG FIX: Divide by stepsNeedingLogs.length, NOT testSteps.length
+                const logsPerStep = Math.ceil(unassignedLogs.length / stepsNeedingLogs.length);
                 let logIdx = 0;
 
                 for (let stepIdx = 0; stepIdx < testSteps.length && logIdx < unassignedLogs.length; stepIdx++) {
@@ -576,6 +589,11 @@ class CustomTTAReporter implements Reporter {
                             step.consoleLogs!.push(unassignedLogs[logIdx++]);
                         }
                     }
+                }
+
+                // BUG FIX: If any logs remain after distribution, add them to the first step
+                if (logIdx < unassignedLogs.length) {
+                    testSteps[0].consoleLogs!.push(...unassignedLogs.slice(logIdx));
                 }
             } else {
                 // All steps have some logs, add remaining to first step
@@ -647,22 +665,20 @@ class CustomTTAReporter implements Reporter {
     private generateHTML(): string {
         const browserName = this.config.projects[0]?.name || 'chrome';
         const platform = process.platform === 'darwin' ? 'Mac' : process.platform === 'win32' ? 'Windows' : 'Linux';
-        const customReportTitle = process.env.REPORT_TITLE || 'TTA Automation Report';
-        const reportIcon = process.env.REPORT_ICON || '🎭';
 
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${customReportTitle}</title>
+    <title>TTA Automation Report</title>
     <style>
         ${this.getStyles()}
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>${reportIcon} ${customReportTitle}</h1>
+        <h1>🎭 TTA Automation Report</h1>
         <p class="header-subtitle">The Testing Academy - Playwright Framework</p>
     </div>
 

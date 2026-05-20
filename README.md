@@ -49,7 +49,9 @@ LearningPlaywrightFoundamentals/
 │       └── 230_Login.spec.ts                   # Login test with Allure reporting
 │   └── Projects/
 │       └── Project_4_TTA_Bank.spec.ts          # TTA Bank transfer fund automation
-├── CustomTTAReporter.ts             # Custom test reporter implementation
+├── ├── tests/
+│   ├── utils/
+│   │   └── CustomTTAReporter.ts     # Custom test reporter implementation
 ├── playwright.config.ts             # Playwright configuration with reporters
 ├── package.json                     # Project dependencies
 ├── playwright-report/               # Playwright HTML test reports
@@ -152,6 +154,30 @@ Located in `tests/03_Locators_Commands/`
 Located in `tests/04_Session_Storage/`
 - **228_Session.spec.ts**: Saving and reusing authenticated session state across tests
 
+### 05_Allure_Reporting - Allure Test Reporting
+Located in `tests/05_Allure_Reporting/`
+- **230_Login.spec.ts**: Login test with Allure reporting integration
+
+### 06_Multiple_Element - Element Selection and Filtering
+Located in `tests/06_Multiple_Element/`
+- Examples for working with multiple elements and advanced element selection techniques
+
+### 07_Web_Tables - Web Table Automation
+Located in `tests/07_Web_Tables/`
+- Test cases for automating web table interactions, data extraction, and validation
+
+### 12_Handle_SVG - SVG Element Handling
+Located in `tests/12_Handle_SVG/`
+- Techniques for automating SVG elements and complex graphical components
+
+### 15_File_Download - File Download Testing
+Located in `tests/15_File_Download/`
+- Test scenarios for file download handling and validation
+
+### 19_Data_Driven_Testing - Data-Driven Testing Patterns
+Located in `tests/19_Data_Driven_Testing/`
+- Parametrized tests and data-driven test execution examples
+
 ## ⚙️ Configuration
 
 The project uses Playwright's configuration with the following settings:
@@ -177,7 +203,7 @@ All tests generate the following artifacts automatically:
 ## 📊 Report Generation
 
 ### CustomTTAReporter
-The project includes a custom Playwright reporter (`CustomTTAReporter.ts`) that generates beautiful HTML reports with:
+The project includes a custom Playwright reporter (`tests/utils/CustomTTAReporter.ts`) that generates beautiful HTML reports with:
 - Real-time test execution monitoring
 - Test step-by-step breakdown with status indicators
 - Video playback directly in the report
@@ -241,6 +267,57 @@ open tta-report/index.html
 - ✅ Screenshots of each step
 - ✅ Trace file for debugging
 - ✅ Detailed HTML report with all interactions
+
+### Project 5 - QA Profile Form
+Located in `tests/Projects/Project_5_QA_Profile_Form.spec.ts`
+
+**Objective**: Automate QA professional profile form submission and validation
+
+**Test Scenarios**:
+- Form field population with various input types
+- Validation of form fields
+- Submission and confirmation handling
+
+### Project 6 - Web Tables Automation
+Located in `tests/Projects/Project_6_Web_Tables.spec.ts`
+
+**Objective**: Advanced web table interaction and data extraction
+
+**Test Scenarios**:
+- Table navigation and sorting
+- Data extraction from table rows
+- Dynamic table content handling
+- Filter and search operations on tables
+
+### Project 7 - IFrame Automation
+Located in `tests/Projects/Project_7_Iframe.spec.ts`
+
+**Objective**: Automate interactions within iFrame elements
+
+**Test Scenarios**:
+- IFrame detection and switching
+- Element interaction within iFrames
+- IFrame content validation
+
+### Project 8 - File Download
+Located in `tests/Projects/Project_8_FileDownload.spec.ts`
+
+**Objective**: Automate file download scenarios and validation
+
+**Test Scenarios**:
+- Trigger file downloads
+- Verify download completion
+- Validate downloaded file content
+
+### Project 8 - SVG Flipkart
+Located in `tests/Projects/Project_8_SVG_Filpkart.spec.ts`
+
+**Objective**: Automate Flipkart-like interface with SVG elements
+
+**Test Scenarios**:
+- SVG element interaction (click, hover, etc.)
+- Complex graphical component automation
+- Dynamic SVG content handling
 
 ## 📝 Notes
 
